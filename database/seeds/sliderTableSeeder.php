@@ -30,7 +30,7 @@ class sliderTableSeeder extends Seeder
 
         DB::table('slider')->insert([
             'img'   => 'banner03.jpg',
-            'title' => 'Saatde',
+            'title' => 'Saatte',
             'label' => '%50 İndirim',
             'text'  => '',
             'link'  => ''
