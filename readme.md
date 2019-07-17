@@ -1,4 +1,4 @@
-#git clobe
+#git clone
 git clone git@github.com:arge01/Eticaret.git
 
 #create database
