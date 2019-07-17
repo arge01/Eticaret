@@ -7,7 +7,7 @@ mysql> **CREATE DATABASE** e_ticaret;
 #composer setting <br>
 $ **composer** install <br>
 $ **npm** i <br>
-$ cp .env.example .env <br>
+$ **cp** .env.example .env <br>
 $ **composer** dump-autoload -o <br>
 
 #database setting <br>
