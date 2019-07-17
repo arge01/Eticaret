@@ -1,21 +1,21 @@
 #git clone <br>
-git clone git@github.com:arge01/Eticaret.git
+**git clone** git@github.com:arge01/Eticaret.git
 
 #create database <br>
-mysql> CREATE DATABASE e_ticaret;
+mysql> **CREATE DATABASE** e_ticaret;
 
 #composer setting <br>
-$ composer install <br>
-$ npm i <br>
+$ **composer** install <br>
+$ **npm** i <br>
 $ cp .env.example .env <br>
-$ composer dump-autoload -o <br>
+$ **composer** dump-autoload -o <br>
 
 #database setting <br>
-$ php artisan migrate <br>
-$ php artisan db:seed <br>
+$ **php artisan** migrate <br>
+$ **php artisan** db:seed <br>
 
 #start project <br>
-$ php artisan serve <br>
+$ **php artisan** serve <br>
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
