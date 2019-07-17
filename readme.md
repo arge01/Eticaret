@@ -5,17 +5,17 @@ git clone git@github.com:arge01/Eticaret.git
 mysql> CREATE DATABASE e_ticaret;
 
 #composer setting <br>
-$ composer install
-$ npm i
-$ cp .\.env.example .\.env
-$ composer dump-autoload -o
+$ composer install <br>
+$ npm i <br>
+$ cp .\.env.example .\.env <br>
+$ composer dump-autoload -o <br>
 
 #database setting <br>
-$ php artisan migrate
-$ php artisan db:seed
+$ php artisan migrate <br>
+$ php artisan db:seed <br>
 
 #start project <br>
-$ php artisan serve
+$ php artisan serve <br>
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
