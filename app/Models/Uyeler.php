@@ -35,4 +35,12 @@ class Uyeler extends Authenticatable
     public function getAuthPassword(){
         return $this->sifre;
     }
+
+    public function detay(){
+        return $this->hasOne('App\Models\UyeDetay','uye_id', 'id');
+    }
+
+    public function sepet() {
+        return $this->belongsTo('App\Models\Sepet', 'id', 'uye_id');
+    }
 }

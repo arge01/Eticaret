@@ -3697,7 +3697,7 @@ li + .dropdown-header.highlight,
     background-color: rgba(0, 0, 0, 0.1);
     color: #fff;
   }
-  .navbar-inverse .navbar-nav .open .dropdown-menu a:not(.label-flat):not(.badge-flat):not(.disabled > a) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu a:not(.label-flat):not(.badge-flat):not(.disabled a) {
     color: #fff;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {

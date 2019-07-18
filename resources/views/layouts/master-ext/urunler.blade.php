@@ -35,7 +35,7 @@
                             <div class="product-btns">
                                 <button title="Beğen" class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                 <button title="Karşılaştır" class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                <button id="tumUrunler_{{ $urun->id }}" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete ekle</button>
+                                <a href="{{ route('urunler', $urun->sef_link) }}" id="tumUrunler_{{ $urun->id }}" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete ekle</a>
                             </div>
                         </div>
                     </div>

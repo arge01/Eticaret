@@ -12,4 +12,8 @@ class Sepet extends Model
     const CREATED_AT = 'olusturma_tarihi';
     const UPDATED_AT = 'guncelleme_tarihi';
     const DELETED_AT = 'silinme_tarihi';
+
+    public function sepet_urun(){
+        return $this->hasMany('App\Models\SepetUrun', 'sepet_id', 'id');
+    }
 }

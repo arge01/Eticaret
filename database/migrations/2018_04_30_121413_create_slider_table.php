@@ -15,9 +15,9 @@ class CreateSliderTable extends Migration
     {
         Schema::create('slider', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('img', 30);
-            $table->string('label', 30);
-            $table->string('title', 30);
+            $table->string('img', 500);
+            $table->string('label', 120);
+            $table->string('title', 120);
             $table->text('text');
             $table->string('link', 50)->nullable();
             $table->timestamp('olusturma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));

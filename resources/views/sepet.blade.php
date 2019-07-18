@@ -74,11 +74,12 @@
                                                     @else
                                                     <option value="0">Belirtilmemiş</option>
                                                     @endif
-                                                    <option value="xl">XL</option>
-                                                    <option value="l">L</option>
-                                                    <option value="m">M</option>
-                                                    <option value="s">S</option>
-                                                    <option value="xs">XS</option>
+                                                    @php
+                                                        $stok_cinsi = explode(',', $urun->options->stok_cinsi);
+                                                        foreach($stok_cinsi as $i => $key) {
+                                                            echo '<option value="'.str_slug($key).'">'.$key.'</option>';
+                                                        }
+                                                    @endphp
                                                 </select>
                                             </li>
                                             <li>
@@ -89,22 +90,23 @@
                                                     @else
                                                     <option value="0">Belirtilmemiş</option>
                                                     @endif
-                                                    <option value="kirmizi">Kırmızı</option>
-                                                    <option value="mavi">Mavi</option>
-                                                    <option value="sari">Sarı</option>
-                                                    <option value="yesil">Yeşil</option>
-                                                    <option value="kahverengi">Kahverengi</option>
+                                                    @php
+                                                        $renk_turu = explode(',', $urun->options->renk_turu);
+                                                        foreach($renk_turu as $i => $key) {
+                                                            echo '<option value="'.str_slug($key).'">'.$key.'</option>';
+                                                        }
+                                                    @endphp
                                                 </select>
                                             </li>
                                         </ul>
                                     </td>
                                     <td class="price text-center">
-                                        <strong><i class="fa fa-try" aria-hidden="true"></i>{{ $urun->price }}</strong>
+                                        <strong><i class="fa fa-try" aria-hidden="true"></i>{{ number_format($urun->price, 2) }}</strong>
                                         <br>
                                         <del class="font-weak"><small><i class="fa fa-try" aria-hidden="true"></i>{{ $urun->options->eski_fiyati }}</small></del>
                                     </td>
                                     <td class="qty text-center"><input id="adet_{{ $urun->rowId }}" class="adet input" type="number" value="{{ $urun->qty }}"></td>
-                                    <td class="total text-center"><strong class="primary-color"><i class="fa fa-try" aria-hidden="true"></i>{{ $urun->subtotal }}</strong></td>
+                                    <td class="total text-center"><strong class="primary-color"><i class="fa fa-try" aria-hidden="true"></i>{{ number_format($urun->subtotal, 2) }}</strong></td>
                                     <td class="text-right"><a id="cart_{{ $urun->rowId }}" class="cart-empty main-btn icon-btn"><i class="fa fa-close"></i></a></td>
                                 </tr>
                                 @endforeach
@@ -147,7 +149,7 @@
 
                     </div>
 
-                    <div class="col-md-6">
+                    {{--<div class="col-md-6">
                         <div class="billing-details">
                             <p>Already a customer ? <a href="#">Login</a></p>
                             <div class="section-title">
@@ -243,11 +245,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
 
                     <div class="col-md-12">
                         <div class="pull-right">
-                            <button class="primary-btn">Satın Al</button>
+                            <a href="{{ route('satinal') }}" class="primary-btn">Satın Al</a>
                         </div>
                     </div>
                     @else

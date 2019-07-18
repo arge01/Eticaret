@@ -8,7 +8,7 @@
                     <div class="col-md-12">
                         <ul class="list-links">
                             @foreach($kategori->children as $altkategori)
-                                <li><a href="{{ 'kategori/'.$kategori->sef_link.'/'.$altkategori->sef_link }}">{{ $altkategori->kategori_adi }}</a></li>
+                                <li><a href="{{ config('app.url').'kategori/'.$kategori->sef_link.'/'.$altkategori->sef_link }}">{!! $altkategori->kategori_adi.' / <span style="font-size: 8pt; font-weight: 500">'.count($altkategori->urunleri).' <span style="font-size: 7pt; font-weight: 300">içerik</span> '.'</span>' !!}</a></li>
                             @endforeach
                         </ul>
                         <hr class="hidden-md hidden-lg">

@@ -221,6 +221,13 @@ textarea.input {
     margin-left: 9px;
 }
 
+@media all and (max-width: 991px) {
+    .list-links>li {
+        display: block;
+        margin-left: 9px;
+    }
+}
+
 .full-li-list-links>li {
     width: 100% !important
 }
@@ -345,6 +352,14 @@ textarea.input {
     height: 70px;
     position: fixed;
     top: 0;
+}
+
+@media all and (max-width: 991px) {
+    .fixed-bar {
+        position: relative;
+        background: #fff;
+        height: auto;
+    }
 }
 
 #header {

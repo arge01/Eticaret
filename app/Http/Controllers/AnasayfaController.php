@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\UrunEkstralari;
 use App\Models\UrunKategorileri;
 use App\Models\Urunler;
-use App\Models\UrunYorumlari;
 use Illuminate\Http\Request;
 use App\Models\Kategori;
 use App\Models\Menu;
@@ -16,9 +15,24 @@ use App\Models\Gunluk;
 class AnasayfaController extends Controller
 {
 
-    /**
-     * @return mixed
-     */
+    public function api(){
+
+        if ( auth()->check() ) {
+            $uye = auth()->user();
+            auth()->user()->detay;
+        }
+        else {
+            $uye = 'Tanımlı Değil';
+        }
+        $urun = Urunler::with(['urun_stok', 'urun_resimleri', 'urun_yorumlari'])->paginate(5);
+
+        return response()->json([
+            'uye'     => $uye,
+            'urunler' => $urun
+        ]);
+
+    }
+
     public function anasayfa(){
 
         //sabitler
@@ -43,16 +57,8 @@ class AnasayfaController extends Controller
 
     }
 
-    /**
-     * @param $kategori_ana_link
-     * @param $kategori_link
-     */
     public function kategori($kategori_ana_link, $kategori_link){
 
-        $data = [
-            'data' => 'Burada % Data Var'
-        ];
-        printf($data['data'], "data");
         //sabitler
         $kategoriler = Kategori::whereRaw('ust_id is null')->get();
         $menuler = Menu::whereRaw('alt_menu is null')->get();
@@ -70,10 +76,6 @@ class AnasayfaController extends Controller
 
     }
 
-    /**
-     * @param $urun_link
-     * @return mixed
-     */
     public function urunler($urun_link){
 
         //sabitler
@@ -82,10 +84,12 @@ class AnasayfaController extends Controller
 
         //urunler sayfası
         $urun = Urunler::where('sef_link', $urun_link)->firstOrFail();
+        $yorumlar = $urun->urun_yorumlari;
+
         $urun_kategorisi = UrunKategorileri::where('urun_id', $urun->id)->first();
         $alt_kategorisi = Kategori::where('id', $urun_kategorisi->kategori_id)->first();
         $ana_kategorisi = Kategori::where('id', $alt_kategorisi->ust_id)->first();
-        $yorumlar = UrunYorumlari::where('urun_id', $urun->id)->get();
+
         $ilginizi_ceker = UrunKategorileri::where('kategori_id', $urun_kategorisi->kategori_id)
             ->where('urun_id', '!=' ,$urun->id)
             ->take(4)

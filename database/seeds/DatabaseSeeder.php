@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UrunResimleriSeeder::class);
         $this->call(UrunStoklariTableSeeder::class);
         $this->call(UrunYorumlariTableSeeder::class);
+        $this->call(uyeDetay::class);
+        $this->call(adminTableSeeder::class);
     }
 }

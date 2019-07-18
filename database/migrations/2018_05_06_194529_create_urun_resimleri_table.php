@@ -16,7 +16,7 @@ class CreateUrunResimleriTable extends Migration
         Schema::create('urun_resimleri', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('urun_id');
-            $table->string('urun_img', 50);
+            $table->string('urun_img', 500);
             $table->timestamp('olusturma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('guncelleme_tarihi')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });

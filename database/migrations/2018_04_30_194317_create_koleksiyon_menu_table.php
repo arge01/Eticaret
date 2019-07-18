@@ -15,9 +15,9 @@ class CreateKoleksiyonMenuTable extends Migration
     {
         Schema::create('koleksiyon_menu', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('isim', 30);
-            $table->string('img', 30);
-            $table->string('sef_link', 30);
+            $table->string('isim', 120);
+            $table->string('img', 500);
+            $table->string('sef_link', 120);
             $table->text('aciklama');
             $table->timestamp('olusturma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('guncelleme_tarihi')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

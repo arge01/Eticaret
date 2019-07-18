@@ -12,7 +12,7 @@ class urunEkstrasiSeeder extends Seeder
     public function run()
     {
         DB::table('urun_ekstralari')->insert([
-            'urun_id'                 => 8,
+            'urun_id'                   => 8,
             'puani'                     => 38,
             'tiklanma_sayisi'           => 153,
             'toplam_satin_alma_fiyati'  => 134,

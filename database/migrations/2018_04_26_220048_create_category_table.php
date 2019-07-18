@@ -16,7 +16,7 @@ class CreateCategoryTable extends Migration
         Schema::create('kategori', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kategori_adi', 30);
-            $table->string('img', 30)->nullable();
+            $table->string('img', 500)->nullable();
             $table->text('img_text')->nullable();
             $table->integer('ust_id')->nullable();
             $table->string('sef_link', 50);
