@@ -25,19 +25,6 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="row hidden-sm hidden-xs">
-                    <div class="col-md-12">
-                        <hr>
-                        @if($menu->ana_img != NULL)
-                            <a class="banner banner-1" href="#">
-                                <img src="{{ config('app.url') }}img/{{ $menu->ana_img }}" alt="">
-                                <div class="banner-caption text-center">
-                                    {!! $menu->ana_img_yazi !!}
-                                </div>
-                            </a>
-                        @endif
-                    </div>
-                </div>
             </div>
         </li>
     @endforeach

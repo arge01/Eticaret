@@ -105,6 +105,7 @@
                     ID: ID
                 },
                 success: function (data) {
+                    console.log(data);
                     $('#'+IDS).css({'background-color': '#43a269'}).html(
                         '<i class="fa fa-shopping-cart"></i> Eklendi'
                     );

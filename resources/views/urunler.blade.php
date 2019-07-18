@@ -116,7 +116,7 @@
                                     }
                                     @endphp
                                 </select>
-                                <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
+                                <button style="width: auto" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
                                 <div class="pull-right">
                                     <button title="Beğen" class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button title="Karşılaştır" class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
@@ -236,7 +236,7 @@
                             <div class="product-label">
                                 <span class="sale">%{{ indirimYuzdesi($urun->urunu->eski_fiyati, $urun->urunu->fiyati) }} İndirim</span>
                             </div>
-                            <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</button>
+                            <a href="{{ route('urunler', $urun->urunu->sef_link) }}" class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</a>
                             <img src="{{ config('app.url').'img/'.$urun->urunu->urun_img }}" alt="">
                         </div>
                         <div class="product-body">
@@ -252,7 +252,7 @@
                             <div class="product-btns">
                                 <button title="Beğen" class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                 <button title="Karşılaştır" class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                                <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete ekle</button>
+                                <a href="{{ route('urunler', $urun->urunu->sef_link) }}" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete ekle</a>
                             </div>
                         </div>
                         <!-- /Product Single -->

@@ -135,7 +135,7 @@ $(function() {
             $(this).parent().find('.bootstrap-tagsinput').children('input[type=text]').attr('placeholder', '');
         }
         else {
-            $(this).parent().find('.bootstrap-tagsinput').children('input[type=text]').attr('placeholder', '- Bootstrap tags input');
+            $(this).parent().find('.bootstrap-tagsinput').children('input[type=text]').attr('placeholder', 'Enter ile ekleyin!');
         }
     }).trigger('change');
 

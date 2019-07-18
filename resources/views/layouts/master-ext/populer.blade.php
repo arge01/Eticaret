@@ -27,7 +27,7 @@
                             <li><span>00 M</span></li>
                             <li><span>00 S</span></li>
                         </ul>
-                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</button>
+                        <a href="{{ route('urunler', $en_iyi_indirim->children->sef_link) }}" class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</a>
                         <img src="{{ config('app.url').'img/'.$en_iyi_indirim->children->urun_img }}" alt="">
                     </div>
                     <div class="product-body">
@@ -62,7 +62,7 @@
                                     <div class="product-label">
                                         <span class="sale">%{{ indirimYuzdesi($urun->children->eski_fiyati, $urun->children->fiyati) }} İndirim</span>
                                     </div>
-                                    <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</button>
+                                    <a href="{{ route('urunler', $urun->children->sef_link) }}" class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</a>
                                     <img src="{{ config('app.url').'img/'.$urun->children->urun_img }}" alt="">
                                 </div>
                                 <div class="product-body">
@@ -119,7 +119,7 @@
                             <li><span>00 M</span></li>
                             <li><span>00 S</span></li>
                         </ul>
-                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</button>
+                        <a href="{{ route('urunler', $son_firsat_urun->sef_link) }}" class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</a>
                         <img src="{{ config('app.url').'img/'.$son_firsat_urun->urun_img }}" alt="">
                     </div>
                     <div class="product-body">
@@ -156,7 +156,7 @@
                                     <span>Yeni Ürün</span>
                                     <span class="sale">%{{ indirimYuzdesi($urun->eski_fiyati, $urun->fiyati) }} İndirim</span>
                                 </div>
-                                <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</button>
+                                <a href="{{ route('urunler', $urun->sef_link) }}" class="main-btn quick-view"><i class="fa fa-search-plus"></i> İncele</a>
                                 <img src="{{ config('app.url').'img/'.$urun->urun_img }}" alt="">
                             </div>
                             <div class="product-body">

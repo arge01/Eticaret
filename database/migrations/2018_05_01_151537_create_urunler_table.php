@@ -16,7 +16,7 @@ class CreateUrunlerTable extends Migration
         Schema::create('urunler', function (Blueprint $table) {
             $table->increments('id');
             $table->string('urun_adi', 60);
-            $table->string('urun_img', 60);
+            $table->string('urun_img', 500);
             $table->string('sef_link', 60);
             $table->integer('urun_kategorileri');
             $table->text('urun_aciklama');

@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use App\Models\Menu;
+use App\Models\Sepet;
+use App\Models\SepetUrun;
+use App\Models\UrunStoklari;
 use App\Uyeler;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -52,6 +56,49 @@ class UyeController extends Controller
         ]);
 
         auth()->login($Uye);
+        $sepet_id = auth()->id();
+        Sepet::create(['uye_id' => $sepet_id]);
+        session()->put('sepet_id', $sepet_id);
+
+        if ( Cart::count() > 0 ) {
+
+            foreach ( Cart::content() as $sepettekiler ) {
+
+                SepetUrun::create(
+                    [
+                        'sepet_id'   => $sepet_id,
+                        'urun_id'    => $sepettekiler->id,
+                        'stok_cinsi' => $sepettekiler->options->stok_cinsi,
+                        'renkleri'   => $sepettekiler->options->renk_turu,
+                        'adet'       => $sepettekiler->qty,
+                        'fiyati'     => $sepettekiler->price,
+                        'durum'      => 'sepette',
+                        'size'       => $sepettekiler->options->size,
+                        'renk'       => $sepettekiler->options->renk
+                    ]
+                );
+
+            }
+
+        }
+
+        Cart::destroy();
+        $eklenen_urunler = SepetUrun::where('sepet_id', $sepet_id)->get();
+
+        foreach ( $eklenen_urunler as $urunler ){
+            Cart::add($urunler->urun->id, $urunler->urun->urun_adi, 1, $urunler->urun->fiyati, [
+                'stok_cinsi'  => $urunler->stok_cinsi,
+                'stok_adedi'  => $urunler->adet,
+                'renk_turu'   => $urunler->renkleri,
+                'size'        => $urunler->size,
+                'renk'        => $urunler->renk,
+                'eski_fiyati' => $urunler->urun->eski_fiyati,
+                'link'        => $urunler->urun->sef_link,
+                'img'         => $urunler->urun->urun_img,
+                'url'         => config('app.url')
+            ]);
+        }
+
         return redirect()->route('anasayfa');
     }
 
@@ -65,6 +112,48 @@ class UyeController extends Controller
         if (auth()->attempt(['email' => request('email'), 'password' => request('sifre')], request()->has('benihatirla'))) {
 
             request()->session()->regenerate();
+
+            $sepet_id = Sepet::firstOrCreate(['uye_id' => auth()->id()])->id;
+            session()->put('sepet_id', $sepet_id);
+
+            if ( Cart::count() > 0 ) {
+
+                foreach ( Cart::content() as $sepettekiler ) {
+
+                    SepetUrun::updateOrCreate(
+                        [ 'sepet_id' => $sepet_id, 'urun_id' => $sepettekiler->id ],
+                        [
+                            'stok_cinsi' => $sepettekiler->options->stok_cinsi,
+                            'renkleri'   => $sepettekiler->options->renk_turu,
+                            'adet'       => $sepettekiler->qty,
+                            'fiyati'     => $sepettekiler->price,
+                            'durum'      => 'sepette',
+                            'size'       => $sepettekiler->options->size,
+                            'renk'       => $sepettekiler->options->renk
+                        ]
+                    );
+
+                }
+
+            }
+
+            Cart::destroy();
+            $eklenen_urunler = SepetUrun::where('sepet_id', $sepet_id)->get();
+
+            foreach ( $eklenen_urunler as $urunler ){
+                Cart::add($urunler->urun->id, $urunler->urun->urun_adi, 1, $urunler->urun->fiyati, [
+                    'stok_cinsi'  => $urunler->stok_cinsi,
+                    'stok_adedi'  => $urunler->adet,
+                    'renk_turu'   => $urunler->renkleri,
+                    'size'        => $urunler->size,
+                    'renk'        => $urunler->renk,
+                    'eski_fiyati' => $urunler->urun->eski_fiyati,
+                    'link'        => $urunler->urun->sef_link,
+                    'img'         => $urunler->urun->urun_img,
+                    'url'         => config('app.url')
+                ]);
+            }
+
             return redirect()->intended();
 
         }else{
@@ -72,7 +161,7 @@ class UyeController extends Controller
             $errors = [
                 'email' => 'Hatalı Giriş'
             ];
-            return back()->withErrors($errors);
+            return back()->withInput()->withErrors($errors);
 
         }
 
