@@ -1,0 +1,78 @@
+#alerts {
+    position: fixed;
+    z-index: 1000000;
+    width: auto;
+    bottom: 0px;
+    right: 0;
+}
+tr.odd {
+    background: #fbfbfb;
+}
+tr > td {
+    line-height: 30px !important;
+}
+#container {
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 30px;
+    margin: 0;
+}
+#container #uploadfiles {
+    width: 100%;
+}
+#container .ekle-button {
+    width: 100%;
+    height: 320px;
+    line-height: 320px;
+    position: absolute;
+    bottom: 120px;
+    left: 0;
+}
+.dropzone {
+    font-size: 1.5em;
+    font-weight: 800;
+    box-sizing: border-box;
+    padding: 15px;
+}
+#dropzone span {
+    color: #ff5f78;
+}
+#container .ekle-button:before {
+    content: "\ed5a";
+    font-family: 'icomoon';
+    font-size: 64px;
+    position: absolute;
+    bottom: 150px;
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    left: 50%;
+    margin-left: -32px;
+    line-height: 1;
+    z-index: 2;
+    color: #ddd;
+    text-indent: 0;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#container .ekle-button:hover:before {
+    content: "\ed5e";
+    color: #717171;
+}
+.extent_add {
+    font-size: 10pt;
+    color: #b5fff8;
+}
+span#coklu_tekli_ekle {
+    font-size: 1em;
+    color: #fff;
+    display: inline-block;
+}
+span#coklu_tekli_ekle a {
+    color: #fff;
+    text-decoration: underline;
+}

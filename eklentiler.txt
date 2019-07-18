@@ -1,0 +1,3 @@
+http://image.intervention.io/getting_started/installation
+https://artisansweb.net/install-use-ckeditor-laravel/
+https://github.com/Crinsane/LaravelShoppingcart
