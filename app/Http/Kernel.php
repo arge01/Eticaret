@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'yonetici' => \App\Http\Middleware\Yonetici::class,
+        'pos.base.uri' => \App\Http\Middleware\configSetPos::class
     ];
 }
