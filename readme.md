@@ -6,13 +6,17 @@ mysql> **CREATE DATABASE** e_ticaret;
 
 #composer setting <br>
 $ **composer** install <br>
-$ **npm** i <br>
 $ **cp** .env.example .env <br>
 $ **composer** dump-autoload -o <br>
 
 #database setting <br>
 $ **php artisan** migrate <br>
 $ **php artisan** db:seed <br>
+
+#npm setting <br>
+$ **npm** i <br>
+$ **npm** run dev <br>
+$ **npm** run watch <br>
 
 #start project <br>
 $ **php artisan** serve <br>

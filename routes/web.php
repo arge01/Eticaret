@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => ''], function(){
+Route::group(['prefix' => '', 'middleware' => 'pos.base.uri'], function(){
     Route::get('/', 'AnasayfaController@anasayfa')->name('anasayfa');
     Route::get('/kategori/{kategori_ana_link}/{kategori_link}', 'AnasayfaController@kategori')->name('kategori');
     Route::get('/urun/{urun_link}', 'AnasayfaController@urunler')->name('urunler');
