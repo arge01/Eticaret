@@ -100,5 +100,4 @@ class AnasayfaController extends Controller
             'urun', 'kategoriler', 'menuler', 'alt_kategorisi', 'ana_kategorisi', 'yorumlar', 'ilginizi_ceker'
         ));
     }
-
 }
