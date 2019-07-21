@@ -224,19 +224,12 @@ class KategoriController extends Controller
         }
     }
 
-    public function altkategorigetir(){
-        $alt_kategoriler = Kategori::where('ust_id', '>', 0)->get();
-        if ( $alt_kategoriler )
-            return response()->json(
-                $data = [
-                    'children' => $alt_kategoriler
-                ]
-            );
+    public function altkategorigetir(Request $request){
+        $kategori = Kategori::whereRaw('ust_id is null')->where('id', $request->ID)->with('children')->first();
+        //$alt_kategoriler = Kategori::where('ust_id', '>', 0)->where('ust_id', $kategori->id)->get();
+        if ( $kategori )
+            return response()->json($kategori);
         else
-            return response()->json(
-                $data = [
-                    'children' => new Kategori()
-                ]
-            );
+            return response()->json(new Kategori());
     }
 }
