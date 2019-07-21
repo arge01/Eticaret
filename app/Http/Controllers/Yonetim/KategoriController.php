@@ -222,6 +222,13 @@ class KategoriController extends Controller
             return view('yonetim.kategori-listele', compact('kategoriler', 'alt_kategoriler'));
 
         }
+    }
 
+    public function altkategorigetir(Request $request){
+        $kategori = Kategori::whereRaw('ust_id is null')->where('id', $request->ID)->with('children')->first();
+        if ( $kategori )
+            return response()->json($kategori);
+        else
+            return response()->json(new Kategori());
     }
 }
