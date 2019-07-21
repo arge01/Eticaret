@@ -16,10 +16,10 @@ $ **php artisan** db:seed <br>
 #npm setting <br>
 $ **npm** i <br>
 $ **npm** run dev <br>
-$ **npm** run watch <br>
 
 #start project <br>
 $ **php artisan** serve <br>
+$ **npm** run watch <br>
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
