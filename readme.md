@@ -17,7 +17,7 @@ $ **php artisan** db:seed <br>
 $ **npm** i <br>
 $ **npm** run dev <br>
 
-#started project <br>
+#start project <br>
 $ **php artisan** serve <br>
 $ **npm** run watch <br>
 
